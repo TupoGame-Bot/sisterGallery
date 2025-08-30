@@ -14,28 +14,58 @@
 </header>
 
 <section class="gallery">
-  <img src="images/photo_5305414402163481589_y" alt="Фото 1">
-  <img src="images/photo_5305414402163481588_y" alt="Фото 2">
-  <img src="images/photo_5305414402163481587_y" alt="Фото 3">
-  <img src="images/photo_5305414402163481586_y" alt="Фото 4">
-  <img src="images/photo_5305414402163481585_y" alt="Фото 5">
-  <img src="images/photo_5305414402163481584_y" alt="Фото 6">
-  <img src="images/photo_5305414402163481583_y" alt="Фото 7">
-  <img src="images/photo_5305414402163481582_y" alt="Фото 8">
-  <img src="images/photo_5305414402163481581_y" alt="Фото 9">
-  <img src="images/photo_5305414402163481580_y" alt="Фото 10">
-  <img src="images/photo_5305414402163481579_y" alt="Фото 11">
-  <img src="images/photo_5305414402163481578_y" alt="Фото 12">
-  <img src="images/photo_5305414402163481577_y" alt="Фото 13">
-  <img src="images/photo_5305414402163481576_y" alt="Фото 14">
-  <img src="images/photo_5305414402163481575_y" alt="Фото 15">
-  <img src="images/photo_5305414402163481574_y" alt="Фото 16">
-  <img src="images/photo_5305414402163481573_y" alt="Фото 17">
+  <!-- Все фото с классом "lightbox-img" -->
+  <img class="lightbox-img" src="images/photo_5305414402163481589_y" alt="Фото 1">
+  <img class="lightbox-img" src="images/photo_5305414402163481588_y" alt="Фото 2">
+  <img class="lightbox-img" src="images/photo_5305414402163481587_y" alt="Фото 3">
+  <img class="lightbox-img" src="images/photo_5305414402163481586_y" alt="Фото 4">
+  <img class="lightbox-img" src="images/photo_5305414402163481585_y" alt="Фото 5">
+  <img class="lightbox-img" src="images/photo_5305414402163481584_y" alt="Фото 6">
+  <img class="lightbox-img" src="images/photo_5305414402163481583_y" alt="Фото 7">
+  <img class="lightbox-img" src="images/photo_5305414402163481582_y" alt="Фото 8">
+  <img class="lightbox-img" src="images/photo_5305414402163481581_y" alt="Фото 9">
+  <img class="lightbox-img" src="images/photo_5305414402163481580_y" alt="Фото 10">
+  <img class="lightbox-img" src="images/photo_5305414402163481579_y" alt="Фото 11">
+  <img class="lightbox-img" src="images/photo_5305414402163481578_y" alt="Фото 12">
+  <img class="lightbox-img" src="images/photo_5305414402163481577_y" alt="Фото 13">
+  <img class="lightbox-img" src="images/photo_5305414402163481576_y" alt="Фото 14">
+  <img class="lightbox-img" src="images/photo_5305414402163481575_y" alt="Фото 15">
+  <img class="lightbox-img" src="images/photo_5305414402163481574_y" alt="Фото 16">
+  <img class="lightbox-img" src="images/photo_5305414402163481573_y" alt="Фото 17">
 </section>
+
+<!-- Лайтбокс -->
+<div id="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
 
 <footer>
   <p>© Моя галерея, 2025. Сделано с ❤️ для сестры</p>
 </footer>
+
+<script>
+// JS для лайтбокса
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const images = document.querySelectorAll('.lightbox-img');
+const closeBtn = document.querySelector('.close');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'block';
+    lightboxImg.src = img.src;
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', e => {
+  if(e.target === lightbox) lightbox.style.display = 'none';
+});
+</script>
 
 </body>
 </html>
